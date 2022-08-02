@@ -14,4 +14,16 @@ export class FirebaseNotesRepository implements INotesRepository {
         })
         return notes;
     }
+
+    async update(note: Notes): Promise<Notes> {
+        const userDoc = doc(db, "teste", note.id);
+        const updateDescription = {description: note.description};
+        await updateDoc(userDoc, updateDescription)
+
+        return note
+    }
+
+    async getAll(): Promise<any> {
+        return
+    }
 }
