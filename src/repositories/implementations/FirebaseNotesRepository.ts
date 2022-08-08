@@ -13,7 +13,7 @@ export class FirebaseNotesRepository implements INotesRepository {
         const {description, date} = notes;
         await addDoc(this.userCollectionRef, {
             description: description,
-            date: date
+            date: new Date(date)
         })
         return notes;
     }

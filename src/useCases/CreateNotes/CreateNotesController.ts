@@ -7,11 +7,12 @@ export class CreateNotesController {
     ) {}
 
     async handle(req: Request, res: Response): Promise<Response> {
-        const { description } = req.body;
+        const { description, date } = req.body;
 
         try {
             const notes = await this.createNoteUseCase.execute({
-                description
+                description,
+                date
             })
 
             return res.status(201).json(notes)
