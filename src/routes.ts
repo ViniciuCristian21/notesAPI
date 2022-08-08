@@ -1,5 +1,6 @@
 import {Router} from "express";
 import { createNotesController } from "./useCases/CreateNotes";
+import { deleteNoteController } from "./useCases/DeleteNotes";
 import { getAllNoteController } from "./useCases/GetAllNotes";
 import { updateNoteController } from "./useCases/UpdateNotes";
 
@@ -16,5 +17,9 @@ router.patch("/update-note", (req, res) => {
 
 router.get("/all-notes", (req, res) => {
     return getAllNoteController.handle(req, res);
+})
+
+router.delete("/delete-note", (req, res) => {
+    return deleteNoteController.handle(req, res);
 })
 export { router }

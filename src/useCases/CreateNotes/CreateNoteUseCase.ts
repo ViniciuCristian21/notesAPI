@@ -9,8 +9,6 @@ export class CreateNoteUseCase {
     ) {}
 
     async execute(data: ICreateNoteRequestDTO) {
-        
-        data.date = new Date();
 
         const notes = new Notes(data);
 

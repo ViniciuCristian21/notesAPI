@@ -13,13 +13,13 @@ export class FirebaseNotesRepository implements INotesRepository {
         const {description, date} = notes;
         await addDoc(this.userCollectionRef, {
             description: description,
-            date: date
+            date: new Date(date)
         })
         return notes;
     }
 
     async update(note: Notes): Promise<Notes> {
-        const userDoc = doc(db, "teste", note.id);
+        const userDoc = doc(this.userCollectionRef, note.id);
         const updateDescription = {description: note.description};
         await updateDoc(userDoc, updateDescription)
 
@@ -39,5 +39,17 @@ export class FirebaseNotesRepository implements INotesRepository {
         )
         })
         return this.Notes;
+    }
+
+    async delete(id: string): Promise<void> {
+        const userDoc = doc(this.userCollectionRef, id)
+        await deleteDoc(userDoc)
+    
+        return
+    }
+
+    async getById(id: string): Promise<Notes> {
+        
+        return
     }
 }
