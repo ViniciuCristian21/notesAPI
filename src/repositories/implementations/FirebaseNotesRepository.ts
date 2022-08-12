@@ -1,6 +1,6 @@
 import { Notes } from '../../entities/Notes';
 import { INotesRepository } from './../INotesRepository';
-import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc } from '@firebase/firestore';
+import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc, getDoc } from '@firebase/firestore';
 import { db } from '../../api';
 
 export class FirebaseNotesRepository implements INotesRepository {
@@ -48,8 +48,17 @@ export class FirebaseNotesRepository implements INotesRepository {
         return
     }
 
-    async getById(id: string): Promise<Notes> {
+    async getById(id: string): Promise<any> {
         
-        return
+        const noteRef = doc(this.userCollectionRef, id)
+        const noteDoc = await getDoc(noteRef)
+        const note: any = {
+            id: noteDoc.id,
+            description: noteDoc.data().description,
+            date: noteDoc.data().date
+        }
+
+            
+        return note
     }
 }
