@@ -6,5 +6,5 @@ export interface INotesRepository {
     update(note: Notes): Promise<Notes>;
     getAll(): Promise<any>;
     delete(id: string): Promise<void>;
-    getById(id: string): Promise<Notes>;
+    getById(id: string): Promise<any>;
 }

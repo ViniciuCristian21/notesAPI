@@ -1,6 +1,7 @@
 import {Router} from "express";
 import { createNotesController } from "./useCases/CreateNotes";
 import { deleteNoteController } from "./useCases/DeleteNotes";
+import { findOneNoteController } from "./useCases/FindOneNotes";
 import { getAllNoteController } from "./useCases/GetAllNotes";
 import { updateNoteController } from "./useCases/UpdateNotes";
 
@@ -21,5 +22,9 @@ router.get("/all-notes", (req, res) => {
 
 router.delete("/delete-note", (req, res) => {
     return deleteNoteController.handle(req, res);
+})
+
+router.get("/find-note", (req, res) => {
+    return findOneNoteController.handle(req, res);
 })
 export { router }
