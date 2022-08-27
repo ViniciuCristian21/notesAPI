@@ -6,6 +6,6 @@ export class Notes {
     public date?: Date;
 
     constructor(props: Omit<Notes, 'id'>, id?: string) {
-        Object.assign(this, props, id)
+        Object.assign(this, props)
     }
 }
