@@ -6,7 +6,9 @@
   "author": "Viniciu Cristian <git.viniciu@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --transpile-only --respawn --ignore-watch nod_modules src/server.ts"
+    "dev": "ts-node-dev --transpile-only --respawn --ignore-watch nod_modules src/server.ts",
+    "build": "yarn tsc",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.12",
