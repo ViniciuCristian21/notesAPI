@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --respawn --ignore-watch nod_modules src/server.ts",
-    "build": "yarn tsc",
+    "build": "node tsc",
     "start": "node dist/server.js"
   },
   "dependencies": {
